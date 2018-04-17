@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Educa{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/bulma.css' %}">
+    <link rel="stylesheet" href="{% static 'css/w3.css' %}">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <link href="{% static 'css/base.css' %}" rel="stylesheet">
+</head>
+<body>
+<div>
+    <a href="/" class="title">Educa</a>
+    <ul>
+        {% if request.user.is_authenticated %}
+            <li><a href="{% url "account_login" %}"></a></li>
+        {% else %}
+            <li><a href="{% url "account_logout" %}"></a></li>
+        {% endif %}
+    </ul>
+</div>
+<section class="w3-light-blue">
+    <div class="container">
+        {% block content %}
+
+        {% endblock %}
+    </div>
+</section>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+<script>
+    $(document).ready(function () {
+        {% block domready %}
+
+        {% endblock %}
+    })
+</script>
+</body>
+</html>
