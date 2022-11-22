@@ -16,7 +16,7 @@ idna==2.6
 jslint==0.6.0
 oauthlib==2.0.7
 pep8==1.7.1
-Pillow==8.1.1
+Pillow==9.3.0
 psycopg2==2.7.4
 psycopg2-binary==2.7.4
 pyflakes==1.6.0
